@@ -20,20 +20,20 @@ class AutoTrade:
         capabilities["acceptInsecureCerts"] = True
         # self.username self.password self.enter_money を配列で作り、配列のlengthをドライバーの数にする。
 
-        self.accounts = [["2479.kzk@gmail.com", "k24792323", 1000, "かんくん", "-"],
-                         ["iidayuya1994@gmail.com", "iikun1003", 2000, "飯田君", "-"],
-                         ["hn22915", "Tkms2580", 1000, "たけまささん", "-"],
-                         ["mr.tekitou.0627@icloud.com", "ONOjunya0627", 2000, "オノジュンヤ", "-"],
-                         ["takuhiro528@gmail.com", "Takuto2468", 1000, "松岡拓冬", "-"],
-                         ["HLMI303528", "Ryou0524", 2000, "山崎凌吾", "-"],
-                         ["ayuran011@gmail.com", "110Naruya", 5000, "伊藤成也", "-"],
-                         ["boicelf415@gmail.com", "ylhoee415", 1000, "武元姫桃", "-"],
-                         ["kei.rsk.tcik@icloud.com", "keisama1025", 5000, "沖田 慧", "-"],
-                         ["risa9760204@gmail.com", "risa0204", 1000, "山岡里紗", "-"],
-                         ["ont.5258@gmail.com", "11335577a", 5000, "吉澤成美", "-"],
-                         ["k.r.hina.hima@gmail.com", "kousuke0621", 1000, "ホリカワコウスケ", "-"],
-                         ["yottyjun@gmail.com", "junY461120", 1000, "吉川純子"],
-                         ["tv2xq.snsd@gmail.com", "mirina1213", 1000, "重光美莉奈"]]
+        self.accounts = [["2479.kzk@gmail.com", "k24792323", 1000, "かんくん"],
+                         ["iidayuya1994@gmail.com", "iikun1003", 2000, "飯田君"],
+                         ["hn22915", "Tkms2580", 1500, "たけまささん"],
+                         ["takuhiro528@gmail.com", "Takuto2468", 1000, "松岡拓冬"],
+                         ["HLMI303528", "Ryou0524", 2000, "山崎凌吾"],
+                         ["ayuran011@gmail.com", "110Naruya", 5000, "伊藤成也"],
+                         ["boicelf415@gmail.com", "ylhoee415", 1000, "武元姫桃"],
+                         ["kei.rsk.tcik@icloud.com", "keisama1025", 5000, "沖田 慧"],
+                         ["risa9760204@gmail.com", "risa0204", 1000, "山岡里紗"],
+                         ["ont.5258@gmail.com", "11335577a", 5000, "吉澤成美"],
+                         ["k.r.hina.hima@gmail.com", "kousuke0621", 1000, "ホリカワコウスケ"],
+                         ["yottyjun@gmail.com", "junY461120", 1500, "吉川純子"],
+                         ["tv2xq.snsd@gmail.com", "mirina1213", 1000, "重光美莉奈"],
+                         ["i_10k_0211@yahoo.com", "I10k0211", 1000, "井上展慧"]]
 
         self.account_num = len(self.accounts)
         self.isTrading = True
@@ -42,6 +42,7 @@ class AutoTrade:
         for i in range(self.account_num):
             self.driver.append(webdriver.Remote(
                 command_executor='http://localhost:4444/wd/hub', desired_capabilities=capabilities))
+            self.accounts[i].append(self.driver[i].session_id)
 
         # accounts [username, password, トレード資金]
 
@@ -67,6 +68,7 @@ class AutoTrade:
             EC.element_to_be_clickable((By.XPATH, '//*[@id="assetsGameTypeZoneRegion"]/ul/li[2]')))
         time.sleep(3)
         self.click_bonus(i)
+        self.accounts[i][1] = self.driver[i].find_element_by_xpath('//*[@id="balance"]').text
 
     def click_bonus(self, i):
         try:

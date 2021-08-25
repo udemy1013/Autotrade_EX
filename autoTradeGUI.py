@@ -6,7 +6,7 @@ import schedule
 ssl._create_default_https_context = ssl._create_unverified_context
 trading = Trading()
 sg.theme("Dark Brown")
-header = ['ユーザーネーム', 'パスワード', '取引金額', "名前", '取引中']
+header = ['ユーザーネーム', '口座残高', '取引金額', "名前", 'セッションID']
 member_list = trading.accounts
 
 
@@ -52,6 +52,7 @@ while True:
     elif event == "Start":
         # TODO リアルに戻す
         trading.real_threads()
+        window["table"].update(values=trading.accounts)
 
     elif event == "change":
         trading.change_currency_threads(values["combo"])
