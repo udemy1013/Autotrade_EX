@@ -29,7 +29,7 @@ class AutoTrade:
                          ["boicelf415@gmail.com", "ylhoee415", 1000, "武元姫桃"],
                          ["kei.rsk.tcik@icloud.com", "keisama1025", 5000, "沖田 慧"],
                          ["risa9760204@gmail.com", "risa0204", 1000, "山岡里紗"],
-                         ["ont.5258@gmail.com", "11335577a", 5000, "吉澤成美"],
+                         ["ont.5258@gmail.com", "11335577a", 1000, "吉澤成美"],
                          ["k.r.hina.hima@gmail.com", "kousuke0621", 1000, "ホリカワコウスケ"],
                          ["yottyjun@gmail.com", "junY461120", 1500, "吉川純子"],
                          ["tv2xq.snsd@gmail.com", "mirina1213", 1000, "重光美莉奈"],
