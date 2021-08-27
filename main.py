@@ -34,7 +34,9 @@ class AutoTrade:
                          ["yottyjun@gmail.com", "junY461120", 1500, "吉川純子"],
                          ["tv2xq.snsd@gmail.com", "mirina1213", 1000, "重光美莉奈"],
                          ["i_10k_0211@yahoo.com", "I10k0211", 1000, "井上展慧"],
-                         ["sat50yg71@yahoo.co.jp", "ys15G7-m1", 2000, "須賀咲都美"]]
+                         ["sat50yg71@yahoo.co.jp", "ys15G7-m1", 2000, "須賀咲都美"],
+                         ["aimaster1013@gmail.com", "aiueo1201", 1000, "吉川雅"],
+                         ["yuk.gnbr@gmail.com", "yk0912yk", 2000, "前 勇輝"]]
 
         self.account_num = len(self.accounts)
         self.isTrading = True
