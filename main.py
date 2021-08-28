@@ -49,6 +49,7 @@ class AutoTrade:
         self.driver = []
         for i in range(self.account_num):
 
+            #10個目以上は違うインスタンスに渡す
             if i > 10:
                 self.driver.append(webdriver.Remote(
                     command_executor='http://localhost:8888/wd/hub', desired_capabilities=capabilities))
