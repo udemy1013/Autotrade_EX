@@ -51,7 +51,7 @@ while True:
 
     elif event == "Start":
         # TODO リアルに戻す
-        trading.real_threads()
+        trading.demo_threads()
         window["table"].update(values=trading.accounts)
 
     elif event == "change":

@@ -20,9 +20,9 @@ class AutoTrade:
         capabilities["acceptInsecureCerts"] = True
         # self.username self.password self.enter_money を配列で作り、配列のlengthをドライバーの数にする。
 
-        self.accounts = [["2479.kzk@gmail.com", "k24792323", 1000, "かんくん"],
-                         ["iidayuya1994@gmail.com", "iikun1003", 2000, "飯田君"],
-                         ["hn22915", "Tkms2580", 1500, "たけまささん"],
+        self.accounts = [["2479.kzk@gmail.com", "k24792323", 1500, "かんくん"],
+                         ["iidayuya1994@gmail.com", "iikun1003", 1000, "飯田君"],
+                         ["hn22915", "Tkms2580", 2500, "たけまささん"],
                          ["takuhiro528@gmail.com", "Takuto2468", 1000, "松岡拓冬"],
                          ["HLMI303528", "Ryou0524", 2000, "山崎凌吾"],
                          ["ayuran011@gmail.com", "110Naruya", 5000, "伊藤成也"],
@@ -36,15 +36,25 @@ class AutoTrade:
                          ["i_10k_0211@yahoo.com", "I10k0211", 1000, "井上展慧"],
                          ["sat50yg71@yahoo.co.jp", "ys15G7-m1", 2000, "須賀咲都美"],
                          ["aimaster1013@gmail.com", "aiueo1201", 1000, "吉川雅"],
-                         ["yuk.gnbr@gmail.com", "yk0912yk", 2000, "前 勇輝"]]
+                         ["yuk.gnbr@gmail.com", "yk0912yk", 2000, "前 勇輝"],
+                         ["p16040tn@gmail.com", "Keisuke1003", 5000, "寺岡圭介"],
+                         ["shigemoto1031@icloud.com", "Stmyyhs7", 5000, "重本祐紀"],
+                         ["p16040tn@gmail.com", "Keisuke1003", 5000, "寺岡圭介"],
+                         ["HLMI307379", "Naokundayo0627", 5000, "髙橋那緒"],
+                         ["ikechirio@yahoo.co.jp", "ikechin1029", 5000, "井前雄介"]]
 
         self.account_num = len(self.accounts)
         self.isTrading = True
 
         self.driver = []
         for i in range(self.account_num):
-            self.driver.append(webdriver.Remote(
-                command_executor='http://localhost:4444/wd/hub', desired_capabilities=capabilities))
+
+            if i > 10:
+                self.driver.append(webdriver.Remote(
+                    command_executor='http://localhost:8888/wd/hub', desired_capabilities=capabilities))
+            else:
+                self.driver.append(webdriver.Remote(
+                    command_executor='http://localhost:4444/wd/hub', desired_capabilities=capabilities))
             self.accounts[i].append(self.driver[i].session_id)
 
         # accounts [username, password, トレード資金]
